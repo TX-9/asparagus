@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ScheduleModule } from './schedule/schedule.module';
+import { reducers } from './store/app.reducers';
+import { StoreModule, StoreRootModule } from '@ngrx/store';
+//import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import { ScheduleModule } from './schedule/schedule.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    ScheduleModule
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]
