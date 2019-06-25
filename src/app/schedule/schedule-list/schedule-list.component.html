@@ -8,8 +8,10 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <app-schedule-item>
-      
+    <app-schedule-item
+      *ngFor="let schedule of schedules; let i = index"
+      [schedule]="schedule"
+      [index]="i">
     </app-schedule-item>
   </div>
 </div>

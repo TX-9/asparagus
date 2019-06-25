@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ScheduleModule } from './schedule/schedule.module';
-import { reducers } from './store/app.reducers';
+import * as fromApp from './store/app.reducer';
 import { StoreModule, StoreRootModule } from '@ngrx/store';
-//import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,10 @@ import { StoreModule, StoreRootModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(fromApp.appReducer),
+    StoreDevtoolsModule.instrument({logOnly: environment.production}),
+    StoreRouterConnectingModule.forRoot(),
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

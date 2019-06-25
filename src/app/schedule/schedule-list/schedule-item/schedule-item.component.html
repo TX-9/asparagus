@@ -1,3 +1,11 @@
-<p>
-  schedule-item works!
-</p>
+<a
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active-link"
+  class="list-group-item clearfix">
+  <div class="pull-center">
+    <h4 class="list-group-item-heading">{{ schedule.subject }} {{ schedule.activated }}</h4>
+    <!-- <p class="list-group-item-text"></p> -->
+  </div>
+
+</a>

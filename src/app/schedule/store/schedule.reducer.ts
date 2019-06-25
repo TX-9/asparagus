@@ -1,5 +1,5 @@
 import { Schedule } from 'src/app/model/schedule.model';
-import * as fromApp from '../../store/app.reducers';
+import * as fromApp from '../../store/app.reducer';
 import * as ScheduleActions from './schedule.actions';
 
 export interface FeatureState extends fromApp.AppState {
@@ -23,7 +23,7 @@ export function scheduleReducer(state = initState, action: ScheduleActions.Sched
                 ...state,
                 schedules: [...action.payload]
             };
-    
+            
         default:
             return state;
     }

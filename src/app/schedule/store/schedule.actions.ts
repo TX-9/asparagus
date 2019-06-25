@@ -1,12 +1,12 @@
 import { Schedule } from '../../model/schedule.model';
 import { Action } from '@ngrx/store';
 
-export const SET_SCHEDULES = 'SET_SCHEDULES';
-export const ADD_SCHEDULE = 'ADD_SCHEDULE';
-export const UPDATE_SCHEDULE = 'UPDATE_SCHEDULE';
-export const DELETE_SCHEDULE = 'DELETE_SCHEDULE';
-export const STORE_SCHEDULES = 'STORE_SCHEDULES';
-export const FETCH_SCHEDULES = 'FETCH_SCHEDULES';
+export const SET_SCHEDULES = '[Schedules] Set Schedules';
+export const ADD_SCHEDULE = '[Schedules] Add Schedules';
+export const UPDATE_SCHEDULE = '[Schedules] Update Schedules';
+export const DELETE_SCHEDULE = '[Schedules] Delete Schedules';
+export const STORE_SCHEDULES = '[Schedules] Store Schedules';
+export const FETCH_SCHEDULES = '[Schedules] Fetch Schedules';
 
 export class SetSchedules implements Action {
   readonly type = SET_SCHEDULES;
