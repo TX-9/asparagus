@@ -9,18 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./schedule-item.component.css']
 })
 export class ScheduleItemComponent implements OnInit {
-  schedules: Schedule[];
+  @Input() schedule: Schedule;
+  @Input() index: number;
   
-  constructor(private scheduleService: ScheduleService,
-              private router: Router,
-              private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.schedules = this.scheduleService.getSchedules();
-  }
-
-  onNewSchedule() {
-    this.router.navigate(['new'], {relativeTo: this.route});
-  }
+  ngOnInit() {}
 
 }
