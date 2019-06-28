@@ -9,14 +9,11 @@ import { ScheduleService } from './schedule.service';
   providers: [ScheduleService]
 })
 export class ScheduleComponent implements OnInit {
-  selectedSchedule: Schedule;
-
-  constructor(private scheduleService: ScheduleService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.scheduleService.scheduleSelected.subscribe((schedule: Schedule) => {
-      this.selectedSchedule = schedule;
-    });
+    
   }
 
 }

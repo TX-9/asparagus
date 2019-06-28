@@ -5,13 +5,20 @@ import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleItemComponent } from './schedule-list/schedule-item/schedule-item.component';
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { StoreModule } from '@ngrx/store';
-import { scheduleReducer } from './store/schedule.reducer'
+import { scheduleReducer } from './store/schedule.reducer';
+import { ScheduleEditComponent } from './schedule-edit/schedule-edit.component';
+import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
+import { ScheduleStartComponent } from './schedule-start/schedule-start.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
-  declarations: [ScheduleComponent, ScheduleListComponent, ScheduleItemComponent],
+  declarations: [ScheduleComponent, ScheduleListComponent, ScheduleItemComponent, ScheduleEditComponent, ScheduleDetailComponent, ScheduleStartComponent],
   imports: [
     CommonModule,
     ScheduleRoutingModule,
-    StoreModule.forFeature('schedules', scheduleReducer)
+    StoreModule.forFeature('schedules', scheduleReducer),
+    FormsModule,
+    ReactiveFormsModule 
   ]
 })
 export class ScheduleModule { }

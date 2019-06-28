@@ -1,11 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Schedule } from '../model/schedule.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleService {
-  scheduleSelected = new EventEmitter<Schedule>();
+  scheduleChanged = new Subject<Schedule[]>();
   private scheules: Schedule[] = [
     new Schedule("lunch", true), new Schedule("dinner", true)
   ];
@@ -18,5 +19,20 @@ export class ScheduleService {
 
   getSchedule(index: number) {
     return this.scheules[index];
+  }
+
+  addSchedule(schedule: Schedule) {
+    this.scheules.push(schedule);
+    this.scheduleChanged.next(this.scheules.slice());
+  }
+
+  updateSchedule(index: number, newSchedule: Schedule) {
+    this.scheules[index] = newSchedule;
+    this.scheduleChanged.next(this.scheules.slice());
+  }
+
+  deleteSchedule(index: number) {
+    this.scheules.splice(index, 1);
+    this.scheduleChanged.next(this.scheules.slice());
   }
 }

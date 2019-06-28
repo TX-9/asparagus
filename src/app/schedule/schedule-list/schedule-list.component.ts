@@ -14,19 +14,30 @@ import { ScheduleService } from '../schedule.service';
   templateUrl: './schedule-list.component.html',
   styleUrls: ['./schedule-list.component.css']
 })
-export class ScheduleListComponent implements OnInit {
+export class ScheduleListComponent implements OnInit, OnDestroy {
   schedules: Schedule[];
   subscription: Subscription;
+
   constructor(private scheduleService: ScheduleService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
     
   ngOnInit() {
+    this.subscription = this.scheduleService.scheduleChanged
+      .subscribe((schs: Schedule[]) => {
+        this.schedules = schs;
+      });
+    
     this.schedules = this.scheduleService.getSchedules();
   }
-
+  
   onNewSchedule() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
+  
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  
   
 }
