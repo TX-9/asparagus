@@ -12,13 +12,17 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DropdownDirective,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +30,11 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     StoreModule.forRoot(fromApp.appReducer),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
     StoreRouterConnectingModule.forRoot(),
-    CoreModule
+    CoreModule, 
+    FormsModule, 
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
