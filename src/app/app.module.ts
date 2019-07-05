@@ -15,6 +15,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { HeaderComponent } from './header/header.component';
     StoreRouterConnectingModule.forRoot(),
     CoreModule, 
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]

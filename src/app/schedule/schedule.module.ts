@@ -10,6 +10,7 @@ import { ScheduleEditComponent } from './schedule-edit/schedule-edit.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { ScheduleStartComponent } from './schedule-start/schedule-start.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [ScheduleComponent, ScheduleListComponent, ScheduleItemComponent, ScheduleEditComponent, ScheduleDetailComponent, ScheduleStartComponent],
@@ -18,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScheduleRoutingModule,
     StoreModule.forFeature('schedules', scheduleReducer),
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule 
   ]
 })
 export class ScheduleModule { }

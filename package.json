@@ -17,6 +17,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
+    "@angular/cdk": "^7.3.7",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
     "@angular/core": "~7.2.0",
@@ -31,7 +32,11 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "ng-pick-datetime": "^7.0.0",
     "path": "^0.12.7",
+    "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"

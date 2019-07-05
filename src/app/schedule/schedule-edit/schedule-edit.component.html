@@ -3,8 +3,8 @@
     <form [formGroup]="schForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" >
-              Save
+          <button class="btn btn-success" type="submit">
+            Save
           </button>
           <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
@@ -19,6 +19,17 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>
+              Date Time:
+              <input [owlDateTimeTrigger]="dt" [owlDateTime]="dt" formControlName="date">
+              <owl-date-time #dt></owl-date-time>
+            </label>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
