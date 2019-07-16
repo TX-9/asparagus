@@ -2,12 +2,13 @@ import * as moment from 'moment';
 
 export class Schedule {
     public subject: string;
-    public activated: boolean;
+    public status: boolean;
     public date: any;
-    
-    constructor(subject: string, activated: boolean) {
+    public desc: string;
+    constructor(subject: string, status: boolean, desc: string) {
         this.subject = subject;
-        this.activated = activated;
+        this.status = status;
         this.date = moment().format('LLLL');
+        this.desc = desc;
     }
 }

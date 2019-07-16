@@ -40,18 +40,18 @@ export class ScheduleEditComponent implements OnInit {
   }
   private initForm() {
     let schSubject = '';
-    let schActivated = false;
+    let schStatus = false;
     let date = '';
     if (this.editMode) {
       const sch = this.schService.getSchedule(this.id);
       schSubject = sch.subject;
-      //date = sch.activated;
+      //date = sch.status;
 
     }
 
     this.schForm = new FormGroup({
       'subject': new FormControl(schSubject),
-      'activated': new FormControl(schActivated),
+      'status': new FormControl(schStatus),
       'date': new FormControl(date)
     })
   }
