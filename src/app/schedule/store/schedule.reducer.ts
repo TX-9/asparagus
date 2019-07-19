@@ -12,7 +12,7 @@ export interface State {
 
 const initState: State = {
     schedules: [
-        new Schedule('Daily Dinner', true)
+        new Schedule('Daily Dinner', true, 'daily dinner schedule')
     ]
 };
 

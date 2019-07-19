@@ -4,6 +4,7 @@ import { ScheduleComponent } from './schedule.component';
 import { ScheduleStartComponent } from './schedule-start/schedule-start.component';
 import { ScheduleEditComponent } from './schedule-edit/schedule-edit.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
+import { ScheduleResolverService } from './schedule-resolver.service';
 
 const scheduleRoutes: Routes = [
   { 
@@ -11,8 +12,8 @@ const scheduleRoutes: Routes = [
     children: [
       { path: '', component: ScheduleStartComponent },
       { path: 'new', component: ScheduleEditComponent },
-      { path: ':id', component: ScheduleDetailComponent },
-      { path: ':id/edit', component: ScheduleEditComponent }
+      { path: ':id', component: ScheduleDetailComponent, resolve: [ScheduleResolverService] },
+      { path: ':id/edit', component: ScheduleEditComponent, resolve: [ScheduleResolverService] }
     ] 
 }
 ]

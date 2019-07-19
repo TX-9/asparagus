@@ -1,38 +1,46 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Schedule } from '../model/schedule.model';
 import { Subject } from 'rxjs';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleService {
   scheduleChanged = new Subject<Schedule[]>();
-  private scheules: Schedule[] = [
-    new Schedule("lunch", true), new Schedule("dinner", true)
-  ];
+  // private schedules: Schedule[] = [
+  //   new Schedule('lunch', true, 'lunch schedule'), new Schedule('dinner', true, 'dinner schedule')
+  // ];
 
-  constructor() { }
+  private schedules: Schedule[] = [];
+
+  constructor(private slService: ShoppingListService) {}
+  
+  setSchedules(schedule: Schedule[]) {
+    this.schedules = schedule;
+    this.scheduleChanged.next(this.schedules.slice());  
+  }
 
   getSchedules() {
-    return this.scheules.slice();
+    return this.schedules.slice();
   }
 
   getSchedule(index: number) {
-    return this.scheules[index];
+    return this.schedules[index];
   }
 
   addSchedule(schedule: Schedule) {
-    this.scheules.push(schedule);
-    this.scheduleChanged.next(this.scheules.slice());
+    this.schedules.push(schedule);
+    this.scheduleChanged.next(this.schedules.slice());
   }
 
   updateSchedule(index: number, newSchedule: Schedule) {
-    this.scheules[index] = newSchedule;
-    this.scheduleChanged.next(this.scheules.slice());
+    this.schedules[index] = newSchedule;
+    this.scheduleChanged.next(this.schedules.slice());
   }
 
   deleteSchedule(index: number) {
-    this.scheules.splice(index, 1);
-    this.scheduleChanged.next(this.scheules.slice());
+    this.schedules.splice(index, 1);
+    this.scheduleChanged.next(this.schedules.slice());
   }
 }
