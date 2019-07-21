@@ -3,9 +3,7 @@ import { Schedule } from '../model/schedule.model';
 import { Subject } from 'rxjs';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ScheduleService {
   scheduleChanged = new Subject<Schedule[]>();
   // private schedules: Schedule[] = [

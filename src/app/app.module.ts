@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { HttpClientModule } from '@angular/common/http';
+import { ScheduleService } from './schedule/schedule.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     OwlNativeDateTimeModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, ScheduleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

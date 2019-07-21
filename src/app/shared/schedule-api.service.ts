@@ -20,7 +20,7 @@ export class ScheduleApiService {
   getSchedules() {
     return this.http
       .get<Schedule[]>(
-        'localhost:3000/plans?sortBy=createdAt:desc&limit=10&skip=0'
+        'http://localhost:3000/plans?sortBy=createdAt:desc&limit=10&skip=0'
       ).pipe(
         map(schedules => {
           return schedules.map(schedule => {
