@@ -1,19 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ScheduleService } from '../schedule/schedule.service';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 import { Schedule } from '../model/schedule.model';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+    //,'Authorization': 'jwt-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleApiService {
   
-  constructor(private http: HttpClient, private schService: ScheduleService) { }
+  constructor(private http: HttpClient, private schService: ScheduleService) { 
+    this.schService.setScheduleApiService(this);
+  }
+
+  saveSchedule(schedule: Schedule): Observable<Schedule> {
+    return this.http.post<Schedule>('http://localhost:3000/plans', schedule, httpOptions);
+      
+  }
 
   saveSchedules() {
     const schedules = this.schService.getSchedules();
+    this.http.put<Schedule[]>(
+      'http://localhost:3000/plans', schedules, httpOptions
+    ).subscribe(response => {
+      console.log(response);
+    });
 
   }
 

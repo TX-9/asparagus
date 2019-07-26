@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Schedule } from '../model/schedule.model';
 import { Subject } from 'rxjs';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { ScheduleApiService } from '../shared/schedule-api.service';
 
 @Injectable()
 export class ScheduleService {
@@ -11,9 +12,15 @@ export class ScheduleService {
   // ];
 
   private schedules: Schedule[] = [];
-
-  constructor(private slService: ShoppingListService) {}
+  private schAPIService: ScheduleApiService;
+  constructor(private slService: ShoppingListService) {
+  }
   
+  setScheduleApiService(schAPIService: ScheduleApiService) {
+    this.schAPIService = schAPIService;
+    console.log('schAPIService', this.schAPIService);
+  }
+
   setSchedules(schedule: Schedule[]) {
     this.schedules = schedule;
     this.scheduleChanged.next(this.schedules.slice());  
@@ -28,8 +35,11 @@ export class ScheduleService {
   }
 
   addSchedule(schedule: Schedule) {
-    this.schedules.push(schedule);
-    this.scheduleChanged.next(this.schedules.slice());
+    this.schAPIService.saveSchedule(schedule).subscribe((sch) => {
+      console.log('sch', sch);
+      this.schedules.push(sch);
+      this.scheduleChanged.next(this.schedules.slice());
+    });
   }
 
   updateSchedule(index: number, newSchedule: Schedule) {
