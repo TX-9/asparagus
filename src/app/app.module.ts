@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { HttpClientModule } from '@angular/common/http';
 import { ScheduleService } from './schedule/schedule.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ScheduleService } from './schedule/schedule.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
     StoreDevtoolsModule.instrument({logOnly: environment.production}),
@@ -39,6 +41,7 @@ import { ScheduleService } from './schedule/schedule.service';
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     HttpClientModule
+
   ],
   providers: [ShoppingListService, ScheduleService],
   bootstrap: [AppComponent]

@@ -42,6 +42,7 @@ export class ScheduleEditComponent implements OnInit {
     let schSubject = '';
     let schStatus = false;
     let date = '';
+    let desc = '';
     if (this.editMode) {
       const sch = this.schService.getSchedule(this.id);
       schSubject = sch.subject;
@@ -52,7 +53,8 @@ export class ScheduleEditComponent implements OnInit {
     this.schForm = new FormGroup({
       'subject': new FormControl(schSubject),
       'status': new FormControl(schStatus),
-      'date': new FormControl(date)
+      'date': new FormControl(date),
+      'desc': new FormControl(desc)
     })
   }
 

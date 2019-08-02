@@ -22,19 +22,28 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label>
-              Date Time:
-              <input [owlDateTimeTrigger]="dt" [owlDateTime]="dt" formControlName="date">
-              <owl-date-time #dt></owl-date-time>
-            </label>
+            <label for="date">Date Time:</label>
+            <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time" id="date" 
+              class="form-control" formControlName="date">
+            <owl-date-time #dt1></owl-date-time>
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
             <label for="status">Activated</label>
             <input type="text" id="status" class="form-control" formControlName="status">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="desc">Desc</label>
+            <input type="text" id="desc" class="form-control" formControlName="desc">
           </div>
         </div>
       </div>
