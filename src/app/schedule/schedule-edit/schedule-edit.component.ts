@@ -46,7 +46,9 @@ export class ScheduleEditComponent implements OnInit {
     if (this.editMode) {
       const sch = this.schService.getSchedule(this.id);
       schSubject = sch.subject;
-      //date = sch.status;
+      schStatus = sch.status;
+      date = sch.date;
+      desc = sch.desc;
 
     }
 

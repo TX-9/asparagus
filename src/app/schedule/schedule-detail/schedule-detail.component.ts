@@ -28,4 +28,8 @@ export class ScheduleDetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
+  onDeleteRecipe() {
+    this.schService.deleteSchedule(this.id);
+    this.router.navigate(['/schedule']);
+  }
 }
