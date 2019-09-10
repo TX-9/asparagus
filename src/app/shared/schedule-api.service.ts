@@ -53,4 +53,10 @@ export class ScheduleApiService {
         })
       )
   }
+
+  deleteSchedule(id: string) {
+    const url = `http://localhost:3000/plans/${id}`;
+    return this.http.delete(url, httpOptions);
+  }
+
 }

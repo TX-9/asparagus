@@ -47,8 +47,8 @@ export class ScheduleService {
     this.scheduleChanged.next(this.schedules.slice());
   }
 
-  deleteSchedule(index: number) {
-    this.schedules.splice(index, 1);
-    this.scheduleChanged.next(this.schedules.slice());
+  deleteSchedule(schedule: Schedule) {
+    this.schAPIService.deleteSchedule(schedule._id).subscribe();
+    //this.scheduleChanged.next(this.schedules.slice());
   }
 }
