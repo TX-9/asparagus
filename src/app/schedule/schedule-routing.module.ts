@@ -10,7 +10,7 @@ const scheduleRoutes: Routes = [
   { 
     path: '', component: ScheduleComponent, 
     children: [
-      { path: '', component: ScheduleStartComponent },
+      { path: '', component: ScheduleStartComponent, resolve: [ScheduleResolverService] },
       { path: 'new', component: ScheduleEditComponent },
       { path: ':id', component: ScheduleDetailComponent, resolve: [ScheduleResolverService] },
       { path: ':id/edit', component: ScheduleEditComponent, resolve: [ScheduleResolverService] }
